@@ -57,6 +57,7 @@ def generateConfig(mode, input_config=[]):
     elif mode == 4:
         config_list = [random.sample(range(0, 255), 3) for _ in range(10)]
 
+    # write back to config.txt containing the correct configuration
     with open("config.txt", "w") as f:
         for count, val in enumerate(config_list):
             color_string = ",".join(str(i) for i in val)

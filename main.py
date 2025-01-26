@@ -5,6 +5,7 @@ from tkinter import filedialog
 
 # IDEA: PLAY GAME OF LIFE WITH SIMPLESQUARE
 
+# general purpose function to ask user for a file
 def openFileDialog():
     file_path = filedialog.askopenfilename(title="Select a File", filetypes=[("Text files", "*.txt")])
     return file_path 
