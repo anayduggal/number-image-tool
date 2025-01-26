@@ -1,5 +1,6 @@
 from PIL import Image
 import numpy as np
+import re
 
 # process config.txt into colors array
 def getColorsArray(config_file):
@@ -12,6 +13,7 @@ def getColorsArray(config_file):
 def readNumber(number_file, limit=None):
     with open(number_file, "r") as f:
         number = f.read()
+        number = re.sub("\D", "", number)
         if limit and len(number) > limit:
             number = number[:limit]
         return number
@@ -52,6 +54,7 @@ def getImageMat(width, height, number, colors):
 def getImageFromMat(image_mat):
     return Image.fromarray(image_mat)
 
+# function for testing
 def simpleSquare():
     colors = getColorsArray("config.txt")
     number = readNumber("number.txt", 10000)
